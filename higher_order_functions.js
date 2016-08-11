@@ -1,7 +1,7 @@
 var repeat = function(operation, num) {
-  for (i = 0; i < num; i++) {
-    operation()
-  }
+  if (num > 0) {
+    repeat(operation, --num)
+  } 
 }
 
 module.exports = repeat
