@@ -1,13 +1,10 @@
-function duckCount(thing) {
-  count = 0
-  
-  for (arg in arguments) {
-    console.log(arguments[arg])
-    if (Object.prototype.hasOwnProperty.call(arguments[arg],'quack')) {
-      count += 1
-    }
-  }
-  return count
+function duckCount() {
+  argumentsArray = [].slice.apply(arguments) // convert arguments to an array
+
+  return argumentsArray.reduce((total, arg) => {
+    Object.prototype.hasOwnProperty.call(arg,'quack') ? total += 1 : total
+    return total
+  },0)
 }
 
 module.exports = duckCount
